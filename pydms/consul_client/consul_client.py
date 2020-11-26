@@ -1,11 +1,11 @@
 import consul
 
-class Consul(object):
+class ConsulClient(object):
     def __init__(self, host, port):
         '''初始化，连接consul服务器'''
         self._consul = consul.Consul(host, port)
 
-    def RegisterService(self, name, host, port, tags=None):
+    def registerService(self, name, host, port, tags=None):
         tags = tags or []
         # 注册服务
         self._consul.agent.service.register(
@@ -17,7 +17,7 @@ class Consul(object):
             # 健康检查ip端口，检查时间：5,超时时间：30，注销时间：30s
             check=consul.Check().tcp(host, port, "5s", "30s", "30s"))
 
-    def GetService(self, name):
+    def getService(self, name):
         services = self._consul.agent.services()
         service = services.get(name)
         if not service:
@@ -25,17 +25,25 @@ class Consul(object):
         addr = "{0}:{1}".format(service['Address'], service['Port'])
         return service, addr
 
-if __name__ == '__main__':
-    host="127.0.0.1" #consul服务器的ip
-    port="8500" #consul服务器对外的端口
-    consul_client=Consul(host,port)
+def consul_check_tcp( host, port, interval, timeout=None, deregister=None):
+    return consul.Check.tcp(host,port,interval,timeout,deregister)
 
-    name="maple"
-    host="127.0.0.1"
-    port=8510
-    consul_client.RegisterService(name,host,port)
+
+def demo():
+    host = "127.0.0.1"  # consul服务器的ip
+    port = "8500"  # consul服务器对外的端口
+    consul_client = ConsulClient(host, port)
+
+    name = "maple"
+    host = "127.0.0.1"
+    port = 8510
+    consul_client.registerService(name, host, port)
 
     check = consul.Check().tcp(host, port, "5s", "30s", "30s")
     print(check)
-    res=consul_client.GetService("maple")
+    res = consul_client.getService("maple")
     print(res)
+
+
+if __name__ == '__main__':
+    demo()
