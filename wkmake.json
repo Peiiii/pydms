@@ -1,0 +1,10 @@
+{
+  "author": "Wang Pei",
+  "author_email": "1535376447@qq.com",
+  "pkg_name": "pydms",
+  "pkg_desc": "python distributed micro-services building tools.",
+  "url": "http://github.com/Peiiii/pydms",
+  "remote_url": "git@github.com:Peiiii/pydms",
+  "install_requires": [
+  ]
+}
