@@ -1,16 +1,3 @@
-Consul
----
-服务发现与服务注册
-
-### docker
-```shell script
-docker pull consul
-docker run --name consul -d -p 8500:8500 consul
-```
-
-### python
-`pip install python-consul`
-```python
 import consul
 
 class Consul(object):
@@ -44,14 +31,11 @@ if __name__ == '__main__':
     consul_client=Consul(host,port)
 
     name="maple"
-    # host="127.0.01"
-    port=8500
+    host="127.0.0.1" # 服务所在的ip
+    port=8510  # 服务所在的端口
     consul_client.RegisterService(name,host,port)
 
     check = consul.Check().tcp(host, port, "5s", "30s", "30s")
     print(check)
     res=consul_client.GetService("maple")
     print(res)
-```
-
-浏览器访问127.0.0.1:8500端口查看
