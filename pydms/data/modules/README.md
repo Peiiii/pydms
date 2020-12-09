@@ -11,6 +11,7 @@ docker-compose down
 GUI端口 8500,8501
 - kong
 ```shell script
+cd kong
 # start
 docker-compose up -d
 # stop
