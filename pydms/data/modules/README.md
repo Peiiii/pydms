@@ -9,7 +9,7 @@ consul->kong->registrator
 docker network create mirco
 ```
 
-- consul
+### consul
 ```shell script
 cd consul
 # start
@@ -18,7 +18,7 @@ docker-compose up -d
 docker-compose down
 ```
 GUI端口 8500,8501
-- kong
+### kong
 ```shell script
 cd kong
 # start
@@ -27,3 +27,12 @@ docker-compose up -d
 docker-compose down
 ```
 konga端口 1337
+
+### registator
+自动检测docker 并注册服务到consul
+
+### rebbitmq
+端口:5672
+
+
+

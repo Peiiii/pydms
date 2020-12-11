@@ -2,15 +2,31 @@
 ---
 ### 参考
 - [手把手教你搭建一个微服务docker+consul+kong](https://zhuanlan.zhihu.com/p/166614226)
-### Api gateway
+### 微服务网关 Api gateway
 Kong
 
 ### 服务注册与服务发现
 Consul
 - 服务自动注册： Registrator
 
-### 负载均衡和反向代理
-nginx
+### 微服务配置中心
+pydms-config-server(开发中)
+
+### 微服务消息总线
+kafka?rabbit mq?
+
+### 微服务日志收集
+ELK(ElasticSearch + Logstash + Kibana)
+
+### 微服务链路追踪和故障快速排查
+Zipkin/OpenTracing
+
+### 微服务之间调用机制
+rest,thrift,gRPC,基于http自定义,基于TCP自定义,基于消息队列
+
+
+
+---
 
 ### 具体服务功能
 python/java/go
@@ -36,3 +52,7 @@ ElasticSearch
 ### 日志与监控
 
 待定
+
+
+### 负载均衡和反向代理
+nginx
