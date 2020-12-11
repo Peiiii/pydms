@@ -1,11 +1,13 @@
 微服务架构
 ---
-
+### 参考
+- [手把手教你搭建一个微服务docker+consul+kong](https://zhuanlan.zhihu.com/p/166614226)
 ### Api gateway
 Kong
 
 ### 服务注册与服务发现
 Consul
+- 服务自动注册： Registrator
 
 ### 负载均衡和反向代理
 nginx

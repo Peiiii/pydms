@@ -1,7 +1,8 @@
 version: "3"
+#ensure network micro exists， if not ,run docker network create micro
 networks:
   micro:
-    driver: bridge
+    external: true
 services:
   consul1:
     image: consul:latest

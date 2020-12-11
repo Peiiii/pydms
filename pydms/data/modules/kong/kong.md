@@ -70,3 +70,18 @@ pantsel/konga -c prepare -a postgres -u postgresql://kong:kong@kong-database:543
 
 
 ```
+
+### Test
+- add a service
+```shell script
+curl -i -X POST http://127.0.0.1:8001/services \
+ --data name=example_service \
+ --data url='http://mockbin.org'
+```
+
+- add a route
+```shell script
+curl -i -X POST http://127.0.0.1:8001/services/example_service/routes \
+  --data 'paths[]=/mock' \
+  --data name=mocking
+```
