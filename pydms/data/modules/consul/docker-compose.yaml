@@ -1,7 +1,7 @@
 version: "3"
 networks:
   micro:
-    driver: bridge
+    external: true
 services:
   consul1:
     image: consul:latest
