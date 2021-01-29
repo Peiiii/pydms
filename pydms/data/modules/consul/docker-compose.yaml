@@ -4,6 +4,8 @@ networks:
     external: true
 services:
   consul:
+    networks:
+      micro
     image: consul:latest
     volumes:
       - /opt/consul/data:/consul/data
