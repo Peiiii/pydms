@@ -5,7 +5,7 @@ networks:
 services:
   consul:
     networks:
-      micro
+      - micro
     image: consul:latest
     volumes:
       - /opt/consul/data:/consul/data
