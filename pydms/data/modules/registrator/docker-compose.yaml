@@ -9,7 +9,7 @@ services:
     networks:
       - micro
     external_links:
-      - consul1:consul
+      - consul:consul
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
     command: consul://consul:8500

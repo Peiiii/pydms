@@ -1,0 +1,15 @@
+version: "3"
+networks:
+  micro:
+    external: true
+
+services:
+  nginx:
+    image: nginx
+    networks:
+      - micro
+    volumes:
+      - "$PWD/html":/opt/nginx/html
+      - "$PWD/conf":/opt/nginx/conf
+    ports:
+    - 7000:80
